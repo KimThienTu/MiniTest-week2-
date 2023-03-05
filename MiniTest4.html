@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="addlength()">Độ Dài Mảng</button>
+<button type="button" onclick="addarray()">Nhập Chuỗi</button>
+<button type="button" onclick="total()">Tổng Các Phần Tử</button>
+<button type="button" onclick="number()">Tổng Các Số Nguyên Tố</button>
+<p id="result"></p>
+<script>
+  let a = [];
+  function addlength() {
+    let num = parseInt(prompt(""));
+    a.length = num;
+  }
+  function addarray() {
+    for (let i = 0; i < a.length; i++) {
+      a[i] = parseInt(prompt(""));
+    }
+    document.getElementById("result").innerHTML=("Mảng gồm có: " + a + "<br>")
+  }
+  function total() {
+    let x = 0;
+    let sum = 0;
+    for (let i = 0; i < a.length; i++) {
+      if(a[i] % 2  === 0){
+        sum += a[i];
+        x++;
+      }
+    }document.getElementById("result").innerHTML = ( "Có " + x +" Số Chẵn: " + " Tổng Các Số Chắn Là:"+ sum + "<br>")
+  }
+  function number() {
+    let c = 0;
+    for (let i = 1; i < a.length; i++) {
+      let d = true;
+      if(a[i] < 2) {
+        d = false;
+      }
+      else {
+        for (let j = 2;j < a[i]-1; j++) {
+          if(a[i] % j === 0){
+            d = false;
+            break;
+          }
+        }
+      }
+      if(d === true) {
+        c += a[i];
+      }
+    } document.getElementById("result").innerHTML = "Tổng Các Số Nguyên Tố Là: = " + c;
+  }
+</script>
+</body>
+</html>
